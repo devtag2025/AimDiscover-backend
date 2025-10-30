@@ -6,7 +6,7 @@ import { eq } from "drizzle-orm";
 import fetch from "node-fetch";
 
 const GROK_API_URL = "https://api.x.ai/v1/chat/completions";
-const GROK_API_KEY = "xai-UxwgjG9luldYa0ZGlIazl2qc0Be41071jBCMzBIlKwWm2nkajjRIJOwSBGiUjdM8PnMkKZ5NR6lJ01rW";
+const GROK_API_KEY = env.GROK_API_KEY;
 
 console.log(" GROK_API_KEY loaded:", GROK_API_KEY);
 
