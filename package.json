@@ -1,0 +1,73 @@
+{
+  "name": "aimdiscover-backend",
+  "version": "2.0.0",
+  "description": "AimDiscover - AI-powered product discovery platform backend (Node.js, Express, PostgreSQL, Drizzle ORM)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "cross-env NODE_NO_WARNINGS=1 nodemon server.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "aimdiscover",
+    "product-discovery",
+    "ai",
+    "nodejs",
+    "express",
+    "postgresql",
+    "drizzle-orm",
+    "neon"
+  ],
+  "author": "DeveloperTag",
+  "license": "MIT",
+  "dependencies": {
+    "@neondatabase/serverless": "latest",
+    "@paralleldrive/cuid2": "latest",
+    "@types/multer": "^1.4.12",
+    "bcryptjs": "latest",
+    "cookie-parser": "latest",
+    "cors": "latest",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "latest",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
+    "express-oas-generator": "^1.0.48",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.9.16",
+    "openid-client": "^6.7.1",
+    "postgres": "^3.4.5",
+    "stripe": "latest",
+    "winston": "^3.17.0",
+    "ws": "^8.18.0",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^24.0.0",
+    "cross-env": "^7.0.3",
+    "drizzle-kit": "^0.30.0",
+    "eslint": "^8.57.1",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1761501435862,
+      "tag": "0000_yielding_mister_sinister",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1761628303972,
+      "tag": "0001_spooky_toro",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1761628351364,
+      "tag": "0002_blushing_gunslinger",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+name: Trigger Vercel Deploy (via Deploy Hook)
+
+on:
+  push:
+    branches: [ "main" ]
+    # (Optional) If you only want your pushes to trigger:
+    # paths-ignore: ["docs/**"]
+    # # Or limit by actor:
+    # # Note: GitHub Actions doesn't filter by actor in 'on', so we guard in the job.
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy Hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          # Trigger the deploy; Vercel accepts GET or POST
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$HOOK")
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "Deploy hook failed with HTTP $code"
+            exit 1
+          fi
+          echo "Deploy hook triggered (HTTP $code)"
