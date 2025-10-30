@@ -15,7 +15,6 @@ export const plans = pgTable("plans", {
   
   // Plan limits & features
   features: jsonb("features"),
-  limits: jsonb("limits"),
   
   // Admin controls
   is_active: boolean("is_active").default(true).notNull(),

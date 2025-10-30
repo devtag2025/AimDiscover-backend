@@ -115,36 +115,8 @@
           "application/json"
         ],
         "parameters": [],
-        "responses": {
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "statusCode": {
-                  "type": "number",
-                  "example": 401
-                },
-                "success": {
-                  "type": "boolean",
-                  "example": false
-                },
-                "message": {
-                  "type": "string",
-                  "example": "Invalid or expired refresh token"
-                },
-                "data": {
-                  "type": "null",
-                  "example": null
-                }
-              }
-            }
-          }
-        },
-        "tags": [],
-        "produces": [
-          "application/json"
-        ]
+        "responses": {},
+        "tags": []
       },
       "put": {
         "summary": "/api/v1/auth/profile",
@@ -224,8 +196,128 @@
           "application/json"
         ],
         "parameters": [],
-        "responses": {},
-        "tags": []
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number",
+                  "example": 200
+                },
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Plans retrieved successfully"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "currency": {
+                        "type": "string"
+                      },
+                      "billing_period": {
+                        "type": "string"
+                      },
+                      "stripe_product_id": {
+                        "type": "string"
+                      },
+                      "stripe_price_id": {
+                        "type": "string"
+                      },
+                      "features": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "is_active": {
+                        "type": "boolean"
+                      },
+                      "sort_order": {
+                        "type": "number"
+                      },
+                      "is_trial": {
+                        "type": "boolean"
+                      },
+                      "is_popular": {
+                        "type": "boolean"
+                      },
+                      "createdAt": {
+                        "type": "string"
+                      },
+                      "updatedAt": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "description",
+                      "price",
+                      "currency",
+                      "billing_period",
+                      "stripe_product_id",
+                      "stripe_price_id",
+                      "features",
+                      "is_active",
+                      "sort_order",
+                      "is_trial",
+                      "is_popular",
+                      "createdAt",
+                      "updatedAt"
+                    ]
+                  },
+                  "example": [
+                    {
+                      "id": "m4aas5ovazqrrlbxdznwm23s",
+                      "name": "Premium Plans",
+                      "description": "Perfect for growing teams",
+                      "price": 2000,
+                      "currency": "USD",
+                      "billing_period": "monthly",
+                      "stripe_product_id": "prod_TKU0ZilxR5shjX",
+                      "stripe_price_id": "price_1SNp2xKMLuE3QkVNrhAMFWpp",
+                      "features": [
+                        "Unlimited ads",
+                        "Team management",
+                        "Advanced analytics"
+                      ],
+                      "is_active": true,
+                      "sort_order": 0,
+                      "is_trial": false,
+                      "is_popular": true,
+                      "createdAt": "2025-10-30T06:09:20.327Z",
+                      "updatedAt": "2025-10-30T06:09:20.327Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "summary": "/api/v1/plans",
@@ -372,36 +464,8 @@
           "application/json"
         ],
         "parameters": [],
-        "responses": {
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "statusCode": {
-                  "type": "number",
-                  "example": 401
-                },
-                "success": {
-                  "type": "boolean",
-                  "example": false
-                },
-                "message": {
-                  "type": "string",
-                  "example": "Invalid or expired refresh token"
-                },
-                "data": {
-                  "type": "null",
-                  "example": null
-                }
-              }
-            }
-          }
-        },
-        "tags": [],
-        "produces": [
-          "application/json"
-        ]
+        "responses": {},
+        "tags": []
       }
     },
     "/api/v1/categories/{id}": {

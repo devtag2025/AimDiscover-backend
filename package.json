@@ -47,7 +47,7 @@
     "nodemailer": "^6.9.16",
     "openid-client": "^6.7.1",
     "postgres": "^3.4.5",
-    "stripe": "latest",
+    "stripe": "^19.2.0",
     "winston": "^3.17.0",
     "ws": "^8.18.0",
     "xss-clean": "^0.1.4"

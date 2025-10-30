@@ -22,39 +22,3 @@ export const createPortalSession = async (req, res, next) => {
     next(error);
   }
 };
-
-export const getCurrentSubscription = async (req, res, next) => {
-  try {
-    const user = req.user;
-    const subscription = await user.getCurrentSubscription();
-
-    if (!subscription) {
-      return res.json(new ApiResponse(200, {
-        status: 'none',
-        plan: null,
-        can_generate_ads: false,
-        trial_available: true
-      }, "No active subscription"));
-    }
-
-    const response = {
-      status: subscription.status,
-      plan: {
-        name: subscription.plan_id.name,
-        features: subscription.plan_id.features,
-        limits: subscription.plan_id.limits,
-        price: subscription.plan_id.price,
-        billing_period: subscription.plan_id.billing_period
-      },
-      current_period_end: subscription.current_period_end,
-      trial_end: subscription.trial_end,
-      cancel_at_period_end: subscription.cancel_at_period_end,
-      usage: subscription.usage,
-      can_generate_ads: subscription.canGenerateAds(subscription.plan_id.limits)
-    };
-
-    res.json(new ApiResponse(200, response, "Current subscription retrieved"));
-  } catch (error) {
-    next(error);
-  }
-};

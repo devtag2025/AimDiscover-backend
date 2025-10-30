@@ -115,12 +115,6 @@ const updatePlan = validateRequest(Joi.object({
   currency: Joi.string().length(3).optional(),
   billing_period: Joi.string().valid('monthly', 'yearly', 'one_time').optional(),
   features: Joi.array().items(Joi.string().max(200)).optional(),
-  limits: Joi.object({
-    ads_per_month: Joi.number().min(0).allow(null).optional(),
-    team_members: Joi.number().min(1).optional(),
-    locations: Joi.number().min(1).optional(),
-    analytics_level: Joi.string().valid('basic', 'advanced').optional()
-  }).optional(),
   sort_order: Joi.number().min(0).optional(),
   is_trial: Joi.boolean().optional(),
   is_popular: Joi.boolean().optional(),
