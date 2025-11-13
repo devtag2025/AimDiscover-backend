@@ -14,6 +14,19 @@
         ]
       }
     },
+    "/api/v1/webhooks/meshy": {
+      "post": {
+        "summary": "/api/v1/webhooks/meshy",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {},
+        "tags": [
+          "webhook"
+        ]
+      }
+    },
     "/api/v1/auth/register": {
       "post": {
         "summary": "/api/v1/auth/register",
@@ -78,6 +91,17 @@
     "/api/v1/auth/resend-verification": {
       "post": {
         "summary": "/api/v1/auth/resend-verification",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/api/v1/auth/refresh-token": {
+      "get": {
+        "summary": "/api/v1/auth/refresh-token",
         "consumes": [
           "application/json"
         ],
@@ -161,6 +185,17 @@
         "tags": []
       }
     },
+    "/api/v1/auth/dashboard-stats": {
+      "get": {
+        "summary": "/api/v1/auth/dashboard-stats",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {},
+        "tags": []
+      }
+    },
     "/api/v1/auth/user/{userId}": {
       "delete": {
         "summary": "/api/v1/auth/user/{userId}",
@@ -196,128 +231,8 @@
           "application/json"
         ],
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "statusCode": {
-                  "type": "number",
-                  "example": 200
-                },
-                "success": {
-                  "type": "boolean",
-                  "example": true
-                },
-                "message": {
-                  "type": "string",
-                  "example": "Plans retrieved successfully"
-                },
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "price": {
-                        "type": "number"
-                      },
-                      "currency": {
-                        "type": "string"
-                      },
-                      "billing_period": {
-                        "type": "string"
-                      },
-                      "stripe_product_id": {
-                        "type": "string"
-                      },
-                      "stripe_price_id": {
-                        "type": "string"
-                      },
-                      "features": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "is_active": {
-                        "type": "boolean"
-                      },
-                      "sort_order": {
-                        "type": "number"
-                      },
-                      "is_trial": {
-                        "type": "boolean"
-                      },
-                      "is_popular": {
-                        "type": "boolean"
-                      },
-                      "createdAt": {
-                        "type": "string"
-                      },
-                      "updatedAt": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "name",
-                      "description",
-                      "price",
-                      "currency",
-                      "billing_period",
-                      "stripe_product_id",
-                      "stripe_price_id",
-                      "features",
-                      "is_active",
-                      "sort_order",
-                      "is_trial",
-                      "is_popular",
-                      "createdAt",
-                      "updatedAt"
-                    ]
-                  },
-                  "example": [
-                    {
-                      "id": "m4aas5ovazqrrlbxdznwm23s",
-                      "name": "Premium Plans",
-                      "description": "Perfect for growing teams",
-                      "price": 2000,
-                      "currency": "USD",
-                      "billing_period": "monthly",
-                      "stripe_product_id": "prod_TKU0ZilxR5shjX",
-                      "stripe_price_id": "price_1SNp2xKMLuE3QkVNrhAMFWpp",
-                      "features": [
-                        "Unlimited ads",
-                        "Team management",
-                        "Advanced analytics"
-                      ],
-                      "is_active": true,
-                      "sort_order": 0,
-                      "is_trial": false,
-                      "is_popular": true,
-                      "createdAt": "2025-10-30T06:09:20.327Z",
-                      "updatedAt": "2025-10-30T06:09:20.327Z"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "tags": [],
-        "produces": [
-          "application/json"
-        ]
+        "responses": {},
+        "tags": []
       },
       "post": {
         "summary": "/api/v1/plans",
@@ -376,70 +291,9 @@
         "tags": []
       }
     },
-    "/api/v1/plans/subscriptions": {
-      "get": {
-        "summary": "/api/v1/plans/subscriptions",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {},
-        "tags": []
-      }
-    },
-    "/api/v1/plans/analytics": {
-      "get": {
-        "summary": "/api/v1/plans/analytics",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {},
-        "tags": []
-      }
-    },
-    "/api/v1/plans/users/{userId}/subscription": {
-      "put": {
-        "summary": "/api/v1/plans/users/{userId}/subscription",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {},
-        "tags": []
-      }
-    },
-    "/api/v1/subscriptions/current": {
-      "get": {
-        "summary": "/api/v1/subscriptions/current",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {},
-        "tags": []
-      }
-    },
     "/api/v1/subscriptions/checkout": {
       "post": {
         "summary": "/api/v1/subscriptions/checkout",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {},
-        "tags": []
-      }
-    },
-    "/api/v1/subscriptions/portal": {
-      "post": {
-        "summary": "/api/v1/subscriptions/portal",
         "consumes": [
           "application/json"
         ],
@@ -464,8 +318,98 @@
           "application/json"
         ],
         "parameters": [],
-        "responses": {},
-        "tags": []
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number",
+                  "example": 200
+                },
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Categories retrieved successfully"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "categories": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "ai_prompt": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string"
+                          },
+                          "updatedAt": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "id": "obilhg6yqm2tetunuzjr6vf1",
+                          "name": "SmartPhone",
+                          "ai_prompt": "A Smart Phone with better design that is sleek and elegent in its design ",
+                          "createdAt": "2025-11-10T05:34:08.957Z",
+                          "updatedAt": "2025-11-10T05:34:08.957Z"
+                        }
+                      ]
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "totalCategories": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "totalPages": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "currentPage": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "limit": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "hasNextPage": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "hasPrevPage": {
+                          "type": "boolean",
+                          "example": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
       }
     },
     "/api/v1/categories/{id}": {
@@ -522,8 +466,206 @@
           "application/json"
         ],
         "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Analysis completed. 3D model generation started."
+                },
+                "insights": {
+                  "type": "string",
+                  "example": "The Qwerty smartphone from the Zenesis region's SmartPhone category is a sleek and stylish device designed with precision and user comfort in mind. It measures 148 mm in length, 71 mm in width, and 7.5 mm in height, making it compact yet substantial enough to handle comfortably. The phone's body is crafted from a high-quality aluminum alloy, which not only enhances its durability but also gives it a premium feel. The back panel and the frame are seamlessly integrated, offering a smooth and uninterrupted surface.\n\nAvailable in three sophisticated color options – midnight blue, silver frost, and graphite black – the Qwerty smartphone boasts a matte finish that minimizes fingerprints and smudges, maintaining its elegant appearance over time. The front of the device is dominated by a 6.1-inch OLED display, which features slim bezels on all sides and a small notch at the top for the front-facing camera. This design maximizes the screen-to-body ratio, providing an immersive viewing experience.\n\nOn the back, the Qwerty features a distinctive camera module, which houses a triple-lens setup arranged in a vertical line. This module protrudes slightly from the back panel and is encircled by a brushed metal ring, adding a touch of sophistication to the design. The power button and volume rocker are located on the right side of the device, both made of the same aluminum alloy as the body, ensuring a consistent feel and look. At the bottom, you'll find a USB-C port flanked by a speaker grille and a microphone hole, all neatly aligned for a clean aesthetic.\n\nOverall, the Qwerty smartphone from the Zenesis region combines high-quality materials with a thoughtful design, resulting in a device that is not only visually appealing but also robust and user-friendly. Its dimensions, color options, and key features make it an excellent choice for those seeking a blend of style and functionality in a smartphone."
+                },
+                "model3D": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "3D model generation task created. Webhook will update when ready."
+                    },
+                    "taskId": {
+                      "type": "string",
+                      "example": "019a7cea-174e-75b8-a0b5-046b440dd66f"
+                    },
+                    "prompt": {
+                      "type": "string",
+                      "example": "The Qwerty smartphone from the Zenesis region's SmartPhone category is a sleek and stylish device designed with precision and user comfort in mind. It measures 148 mm in length, 71 mm in width, and 7. 5 mm in height, making it compact yet substantial enough to handle comfortably"
+                    },
+                    "artStyle": {
+                      "type": "string",
+                      "example": "realistic"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "PENDING"
+                    },
+                    "progress": {
+                      "type": "number",
+                      "example": 0
+                    }
+                  }
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "category": {
+                      "type": "string",
+                      "example": "SmartPhone"
+                    },
+                    "region": {
+                      "type": "string",
+                      "example": "Zenesis"
+                    },
+                    "productName": {
+                      "type": "string",
+                      "example": "Qwerty"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "example": "2025-11-13T11:11:53.796Z"
+                    },
+                    "grokModel": {
+                      "type": "string",
+                      "example": "grok-2-1212"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/api/v1/analysis/3d-status/{taskId}": {
+      "get": {
+        "summary": "/api/v1/analysis/3d-status/{taskId}",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "taskId": {
+                  "type": "string",
+                  "example": "019a7cea-174e-75b8-a0b5-046b440dd66f"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "IN_PROGRESS"
+                },
+                "progress": {
+                  "type": "number",
+                  "example": 50
+                },
+                "modelUrls": {
+                  "type": "object",
+                  "properties": {
+                    "glb": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                },
+                "thumbnailUrl": {
+                  "type": "null",
+                  "example": null
+                },
+                "videoUrl": {
+                  "type": "null",
+                  "example": null
+                },
+                "prompt": {
+                  "type": "string",
+                  "example": "The Qwerty smartphone from the Zenesis region's SmartPhone category is a sleek and stylish device designed with precision and user comfort in mind. It measures 148 mm in length, 71 mm in width, and 7. 5 mm in height, making it compact yet substantial enough to handle comfortably"
+                },
+                "artStyle": {
+                  "type": "string",
+                  "example": "realistic"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2025-11-13T11:11:53.328Z"
+                },
+                "finishedAt": {
+                  "type": "null",
+                  "example": null
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/api/v1/webhook/stripe": {
+      "post": {
+        "summary": "/api/v1/webhook/stripe",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": [
+          "webhook"
+        ]
+      }
+    },
+    "/api/v1/webhook/meshy": {
+      "post": {
+        "summary": "/api/v1/webhook/meshy",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Webhook processed successfully"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "webhook"
+        ],
+        "produces": [
+          "application/json"
+        ]
       }
     },
     "/api/v1": {

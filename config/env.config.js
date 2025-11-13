@@ -73,11 +73,12 @@ export const env = {
   PORT: parseInt(process.env.PORT) || 5000,
   DATABASE_URL: process.env.DATABASE_URL,
   DB_NAME: process.env.DB_NAME || "aimdiscover_db",
-
+  FRONTEND_URL:process.env.FRONTEND_URL,
+  MESHY_API_KEY:process.env.MESHY_API_KEY,
   // Google OAuth
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-  OAUTH_REDIRECT_URI: process.env.OAUTH_REDIRECT_URI,
+  GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI,
   GOOGLE_SCOPES: process.env.GOOGLE_SCOPES || "openid email profile",
 
   // JWT & Security
@@ -121,9 +122,14 @@ export const env = {
   AWS_REGION: process.env.AWS_REGION || "us-east-1",
   AWS_S3_BUCKET: process.env.AWS_S3_BUCKET,
 
-
+MESHY_API_KEY:process.env.MESHY_API_KEY,
   //Grok API Key
-  GROK_API_KEY:process.env.Grok_Api_Key,
+  GROK_API_KEY:process.env.GROK_API_KEY,
   // Feature Flags
   ENABLE_API_DOCS: process.env.ENABLE_API_DOCS === "true" || process.env.NODE_ENV !== "production",
+  //GEMINI API KEY
+
+  GOOGLE_GEMINI_KEY:process.env.GOOGLE_GEMINI_KEY,
+  MESHY_WEBHOOK_SECRET:process.env.MESHY_WEBHOOK_SECRET,
+  NGROK_SERVER:process.env.NGROK_SERVER
 };

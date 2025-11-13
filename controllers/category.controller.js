@@ -29,9 +29,10 @@ export const CategoryController = {
    *  Get all categories (with pagination + search)
    */
   async getAll(req, res, next) {
+    console.log("get all categories")
     try {
       const { page = 1, limit = 10, search = "" } = req.query;
-
+  
       const result = await CategoryService.getAllCategories({
         page: Number(page),
         limit: Number(limit),

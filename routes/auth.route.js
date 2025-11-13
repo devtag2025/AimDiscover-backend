@@ -11,20 +11,20 @@ router.post('/forgot-password', validate.forgotPassword, authController.forgotPa
 router.post('/reset-password', validate.resetPassword, authController.resetPassword);
 router.get('/verify-email/:token', validate.verifyEmailToken, authController.verifyEmail);
 router.post('/resend-verification', validate.resendVerification, authController.resendVerification);
+router.get('/refresh-token',validate.refreshAccessToken,authController.refreshAccessToken)
 
 // Google OAuth routes (no validation needed)
-router.get('/google', authController.redirectToGoogle);
-router.get('/google/callback', authController.googleCallback);
+router.get('/google', authController.googleAuth);
+router.get('/google/callback',authController.googleCallback);
 
 // Protected routes (auth middleware required)
 router.use(auth);
-
 router.get('/profile', authController.getProfile);
 router.put('/profile', validate.updateProfile, authController.updateProfile);
 router.post('/change-password', validate.changePassword, authController.changePassword);
 router.post('/logout', authController.logout);
 router.post('/register-user',authorize(['admin']), authController.adminCreateUser);
-
+router.get('/dashboard-stats', authController.getDashboardStats)
 
 router.delete('/user/:userId', authController.deleteUser);
 // Admin routes

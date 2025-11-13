@@ -73,7 +73,7 @@ const resetPassword = validateRequest(Joi.object({
 }));
 
 const verifyEmailToken = validateParams(Joi.object({ token }));
-
+const refreshAccessToken = validateParams(Joi.object({token}))
 const resendVerification = validateRequest(Joi.object({ email }));
 
 const updateProfile = validateRequest(Joi.object({
@@ -172,7 +172,7 @@ export const validate = {
   resendVerification,
   updateProfile,
   changePassword,
-  
+  refreshAccessToken,
   
   // Plans
   createPlan,

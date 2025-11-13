@@ -5,6 +5,7 @@ import planRoutes from "./plan.route.js";
 import subscriptionRoutes from "./subscription.route.js";
 import categoryRoutes from './category.route.js'
 import analysisRoutes from './analysis.route.js'
+import webhookRoutes from './webhook.route.js'
 // Main router for the application
 const router = Router();
 
@@ -13,7 +14,7 @@ router.use("/plans", planRoutes);
 router.use("/subscriptions", subscriptionRoutes);
 router.use("/categories", categoryRoutes);
 router.use("/analysis", analysisRoutes);
-
+router.use("/webhook",webhookRoutes)
 // Add documentation or other routes as needed
 router.get("/", (req, res) => {
   res.send("Welcome to the AimDiscover API - AI-powered product discovery platform");

@@ -7,7 +7,7 @@ import rateLimit from "express-rate-limit";
 import cookieParser from "cookie-parser";
 // Remove cookieSession import since we're using manual cookies
 import webhookRoutes from "./routes/webhook.route.js";
-
+import passport from "passport";
 import { notFoundMiddleware, errorHandler } from "./middlewares/index.js";
 import routes from "./routes/index.js";
 import { env } from "./config/index.js";
@@ -49,7 +49,7 @@ app.use(
   })
 );
 
-
+app.use(passport.initialize());
 app.use(
   helmet({
     crossOriginResourcePolicy: false,
