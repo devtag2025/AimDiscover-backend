@@ -1,0 +1,1 @@
+ALTER TABLE "master_prompts" ADD CONSTRAINT "master_prompts_key_unique" UNIQUE("key");
